@@ -28,9 +28,9 @@ function findSteps(id) {
         .orderBy('st.step_number')
 }
 
-function add(schemeDetails) {
+function add(schemaDetails) {
     return db('schemes')
-            .insert(details)
+            .insert(schemaDetails)
             .then(newIdArray => {
                 return findById(newIdArray[0])
             })
