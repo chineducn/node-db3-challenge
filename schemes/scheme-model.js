@@ -4,6 +4,7 @@ module.exports = {
     find,
     findById,
     findSteps,
+    add,
 }
 
 function find() {
@@ -19,4 +20,12 @@ function findById(id) {
 function findSteps(id) {
     return db('steps')
         .where({scheme_id: id})
+}
+
+function add(details) {
+    return db('schemes')
+        .insert(details)
+        .then(newIdArray => {
+            return findById(newIdArray[0])
+        })
 }
